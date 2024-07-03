@@ -1,0 +1,29 @@
+@use "/src/styles/variables/font.scss" as *;
+
+@use "sass:map";
+
+@mixin font-family() {
+  font-family: $font;
+}
+
+@mixin font-size($designed-font-px, $line-height: 1.6, $letter-spacing: 0.06) {
+  font-size: #{$designed-font-px}px;
+  line-height: #{$line-height}em;
+  letter-spacing: #{$letter-spacing}em;
+}
+
+@mixin font-weight($weight) {
+  $weight-keys: (
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700,
+  );
+
+  @if not map.has-key($weight-keys, $weight) {
+    @error 'font weight `#{$weight}` is not valid. Available on `#{map.keys($weight-keys)}`';
+  }
+
+  $weight-number: map.get($weight-keys, $weight);
+  font-weight: $weight-number;
+}
