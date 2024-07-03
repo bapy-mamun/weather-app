@@ -8,6 +8,7 @@ body {
   @include font-weight("regular");
   @include font-size(16);
   color: $COLOR_TEXT_BLACK;
+  background-color: $COLOR_WHITE_SMOKE;
 }
 
 input,

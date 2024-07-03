@@ -1,0 +1,9 @@
+@use "/src/styles/tools.scss" as *;
+
+.c-weather-card {
+  padding: 32px 24px;
+  border-radius: 16px;
+  background-color: $COLOR_WHITE;
+  width: 300px;
+  margin: 0 auto;
+}

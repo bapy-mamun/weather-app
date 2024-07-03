@@ -1,0 +1,45 @@
+@use "/src/styles/tools.scss" as *;
+
+.c-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: $COLOR_BLUE_PRIMARY;
+  color: $COLOR_WHITE;
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    padding: 4px 10px;
+    margin-right: 10px;
+    border: 1px solid $COLOR_GREY;
+    border-radius: 4px;
+    color: $COLOR_BLUE_SECONDARY;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &__button {
+    padding: 4px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: $COLOR_WHITE;
+    color: $COLOR_BLUE_SECONDARY;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);;
+
+    &:hover {
+      background-color: $COLOR_BLUE_SECONDARY;
+      color: $COLOR_WHITE;
+    }
+  }
+}
