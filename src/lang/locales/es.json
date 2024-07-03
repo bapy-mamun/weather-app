@@ -1,0 +1,11 @@
+{
+  "title": "Clima Actual",
+  "search": "Buscar",
+  "currentWeather": "Clima Actual",
+  "forecast": "Pronóstico de 5 Días",
+  "searchPlaceholder": "Buscar ciudad",
+  "date": "Fecha",
+  "temperature": "Temperatura",
+  "humidity": "Humedad",
+  "conditions": "Condiciones"
+}

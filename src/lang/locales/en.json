@@ -1,0 +1,11 @@
+{
+  "title": "Current Weather",
+  "search": "Search",
+  "currentWeather": "Current Weather",
+  "forecast": "5 Day Forecast",
+  "searchPlaceholder": "Search city",
+  "date": "Date",
+  "temperature": "Temperature",
+  "humidity": "Humidity",
+  "conditions": "Conditions"
+}

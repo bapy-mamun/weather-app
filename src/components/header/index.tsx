@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 type HeaderProps = {
   onSearch: (city: string) => void;
@@ -7,6 +8,7 @@ type HeaderProps = {
 }
 
 const Header: React.FC<HeaderProps> = ({ onSearch, onChangeLanguage }) => {
+  const { t } = useTranslation();
   const [city, setCity] = React.useState("");
 
   const handleSearch = () => {
@@ -21,11 +23,11 @@ const Header: React.FC<HeaderProps> = ({ onSearch, onChangeLanguage }) => {
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          placeholder="Search city"
+          placeholder={t('searchPlaceholder')}
           className="c-header__input"
         />
         <button onClick={handleSearch} className="c-header__button">
-          Search
+          {t('search')}
         </button>
         <button
           onClick={() => onChangeLanguage("en")}
