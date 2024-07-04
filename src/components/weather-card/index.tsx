@@ -26,6 +26,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
       {!weatherIsError && weatherData && (
         <div className="c-weather-card">
           <h2 data-testid="weather-card-title">{t('title')}</h2>
+          <h3 className="c-weather-card__title">{city}</h3>
           <p>
             {t('temperature')}: {(weatherData?.main.temp - 273.15).toFixed(2)}°C
           </p>
