@@ -10,6 +10,11 @@ WeatherApp is a responsive web application that provides weather forecasts for d
 - Language switcher (English and Spanish)
 - Custom icons for date, temperature, humidity, and weather conditions
 
+### Live App URL
+```bash
+https://weather-app-five-topaz.vercel.app/
+```
+
 ## Technologies Used
 
 - **React**: A JavaScript library for building user interfaces
