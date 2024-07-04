@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Header from './components/header';
 import WeatherCard from './components/weather-card';
 import Footer from './components/footer';
 import ForecastCard from './components/forecast-card';
 import { useTranslation } from 'react-i18next';
 
-function App() {
+const App: React.FC = () => {
   const [searchBtnClicked, setSearchBtnClicked] = useState(true);
   const [city, setCity] = useState('Tokyo');
   const { i18n } = useTranslation();
@@ -32,6 +32,6 @@ function App() {
       <Footer />
     </>
   );
-}
+};
 
 export default App;

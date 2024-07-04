@@ -40,12 +40,14 @@ const Header: React.FC<HeaderProps> = ({
         <button
           onClick={() => onChangeLanguage('en')}
           className="c-header__button"
+          data-testid="en"
         >
           EN
         </button>
         <button
           onClick={() => onChangeLanguage('es')}
           className="c-header__button"
+          data-testid="es"
         >
           ES
         </button>

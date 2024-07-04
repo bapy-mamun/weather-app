@@ -1,3 +1,4 @@
+import React from 'react';
 import './index.scss';
 import { useTranslation } from 'react-i18next';
 import { useGetWeatherQuery } from '../../store/weatherApi';
@@ -25,7 +26,7 @@ const WeatherCard = ({ searchBtnClicked, city }: WeatherCardProps) => {
       {weatherIsError && <p>{(weatherError as ErrorType)?.data?.message}</p>}
       {!weatherIsError && weatherData && (
         <div className="c-weather-card">
-          <h2>{t('title')}</h2>
+          <h2 data-testid="weather-card-title">{t('title')}</h2>
           <p>
             {t('temperature')}: {(weatherData?.main.temp - 273.15).toFixed(2)}°C
           </p>
