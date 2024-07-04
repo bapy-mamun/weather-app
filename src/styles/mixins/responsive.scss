@@ -1,0 +1,37 @@
+@use 'sass:map';
+
+$break-points: (
+  'sp': 768px,
+);
+
+$scoped-device: 'pc';
+
+@mixin pc($selector) {
+  $default-scoped-device: $scoped-device;
+  $scoped-device: 'pc' !global;
+
+  @at-root {
+    #{$selector} {
+      @media only screen and (min-width: #{map.get($break-points, sp) + 1px}) {
+        @content;
+      }
+    }
+  }
+
+  $scoped-device: $default-scoped-device !global;
+}
+
+@mixin sp($selector) {
+  $default-scoped-device: $scoped-device;
+  $scoped-device: 'sp' !global;
+
+  @at-root {
+    #{$selector} {
+      @media only screen and (max-width: #{map.get($break-points, sp)}) {
+        @content;
+      }
+    }
+  }
+
+  $scoped-device: $default-scoped-device !global;
+}

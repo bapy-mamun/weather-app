@@ -1,12 +1,15 @@
 @use '/src/styles/tools.scss' as *;
 
 .c-header {
+  $root: &;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: $COLOR_BLUE_PRIMARY;
   color: $COLOR_WHITE;
+  height: 60px;
 
   &__logo {
     font-size: 1.5rem;
@@ -16,6 +19,30 @@
   &__controls {
     display: flex;
     align-items: center;
+
+    @include sp(&) {
+      display: none;
+    }
+
+    &.open {
+      @include pc(&) {
+        display: none;
+      }
+
+      @include sp(&) {
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+        padding: 20px;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: $COLOR_BLUE_PRIMARY;
+        width: 326px;
+        height: calc(100vh - 60px);
+        z-index: 1000;
+      }
+    }
   }
 
   &__input {
@@ -40,6 +67,52 @@
     &:hover {
       background-color: $COLOR_BLUE_SECONDARY;
       color: $COLOR_WHITE;
+    }
+
+    @include sp(&) {
+      padding: 4px 12px;
+    }
+  }
+
+  &__hamburger {
+    display: none;
+
+    .bar {
+      width: 80%;
+      height: 2px;
+      background-color: $COLOR_WHITE;
+      transition: all 0.3s ease;
+    }
+
+    .bar1 {
+      transform: rotate(48deg) translate(4px, 5px);
+    }
+
+    .bar2 {
+      opacity: 0;
+    }
+
+    .bar3 {
+      transform: rotate(-49deg) translate(6px, -8px);
+    }
+
+    @include sp(&) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+
+  &__controls-language {
+    @include sp(&) {
+      width: 100%;
+
+      #{$root}__button {
+        width: calc(50% - 10px);
+      }
     }
   }
 }
