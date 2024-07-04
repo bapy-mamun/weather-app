@@ -3,17 +3,19 @@ import './index.scss';
 import { useTranslation } from 'react-i18next';
 
 type HeaderProps = {
-  onSearch: (city: string) => void;
+  onChangeCity: (city: string) => void;
   onChangeLanguage: (lng: string) => void;
+  setSearchBtnClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  city: string;
 };
 
-const Header: React.FC<HeaderProps> = ({ onSearch, onChangeLanguage }) => {
+const Header: React.FC<HeaderProps> = ({
+  onChangeCity,
+  onChangeLanguage,
+  setSearchBtnClicked,
+  city,
+}) => {
   const { t } = useTranslation();
-  const [city, setCity] = React.useState('');
-
-  const handleSearch = () => {
-    onSearch(city);
-  };
 
   return (
     <header className="c-header">
@@ -22,11 +24,17 @@ const Header: React.FC<HeaderProps> = ({ onSearch, onChangeLanguage }) => {
         <input
           type="text"
           value={city}
-          onChange={(e) => setCity(e.target.value)}
+          onChange={(e) => {
+            onChangeCity(e.target.value);
+            setSearchBtnClicked(false);
+          }}
           placeholder={t('searchPlaceholder')}
           className="c-header__input"
         />
-        <button onClick={handleSearch} className="c-header__button">
+        <button
+          onClick={() => setSearchBtnClicked((prev) => !prev)}
+          className="c-header__button"
+        >
           {t('search')}
         </button>
         <button

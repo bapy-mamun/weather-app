@@ -1,32 +1,43 @@
 import './index.scss';
 import { useTranslation } from 'react-i18next';
+import { useGetWeatherQuery } from '../../store/weatherApi';
 
 type WeatherCardProps = {
-  temperature: number;
-  humidity: number;
-  description: string;
+  searchBtnClicked: boolean;
+  city: string;
 };
 
-const WeatherCard = ({
-  temperature,
-  humidity,
-  description,
-}: WeatherCardProps) => {
+const WeatherCard = ({ searchBtnClicked, city }: WeatherCardProps) => {
   const { t } = useTranslation();
+  const {
+    data: weatherData,
+    isLoading: weatherIsLoading,
+    isError: weatherIsError,
+    error: weatherError,
+  } = useGetWeatherQuery(city, {
+    skip: !searchBtnClicked,
+  });
 
   return (
-    <div className="c-weather-card">
-      <h2>{t('title')}</h2>
-      <p>
-        {t('temperature')}: {temperature}°C
-      </p>
-      <p>
-        {t('humidity')}: {humidity}%
-      </p>
-      <p>
-        {t('conditions')}: {description}
-      </p>
-    </div>
+    <>
+      {weatherIsLoading && <p>Loading...</p>}
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      {weatherIsError && <p>{(weatherError as any)?.data?.message}</p>}
+      {!weatherIsError && weatherData && (
+        <div className="c-weather-card">
+          <h2>{t('title')}</h2>
+          <p>
+            {t('temperature')}: {weatherData?.main.temp}°C
+          </p>
+          <p>
+            {t('humidity')}: {weatherData?.main.humidity}%
+          </p>
+          <p>
+            {t('conditions')}: {weatherData?.weather[0].description}
+          </p>
+        </div>
+      )}
+    </>
   );
 };
 
