@@ -9,7 +9,10 @@ type WeatherCardProps = {
   city: string;
 };
 
-const WeatherCard = ({ searchBtnClicked, city }: WeatherCardProps) => {
+const WeatherCard: React.FC<WeatherCardProps> = ({
+  searchBtnClicked,
+  city,
+}) => {
   const { t } = useTranslation();
   const {
     data: weatherData,
