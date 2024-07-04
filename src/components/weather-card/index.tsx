@@ -7,6 +7,7 @@ import { WeatherCardProps } from '../../types/weatherTypes';
 import DateIcon from '../icon/date-icon';
 import HumidityIcon from '../icon/humidity-icon';
 import ConditionIcon from '../icon/condition-icon';
+import LoadingSkeleton from '../loading-skeleton';
 
 const WeatherCard: React.FC<WeatherCardProps> = ({
   searchBtnClicked,
@@ -24,8 +25,12 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
 
   return (
     <>
-      {weatherIsLoading && <p>Loading...</p>}
-      {weatherIsError && <p>{(weatherError as ErrorType)?.data?.message}</p>}
+      {weatherIsLoading && <LoadingSkeleton />}
+      {weatherIsError && (
+        <div className="c-weather-card__error">
+          {(weatherError as ErrorType)?.data?.message}
+        </div>
+      )}
       {!weatherIsError && weatherData && (
         <div className="c-weather-card">
           <h2 data-testid="weather-card-title">{t('title')}</h2>
