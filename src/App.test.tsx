@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
@@ -7,10 +6,14 @@ import App from './App';
 import './lang/i18n';
 import '@testing-library/jest-dom';
 
+const ReactFragment = React.Fragment;
+
 beforeEach(() => {
   render(
     <Provider store={store}>
-      <App />
+      <ReactFragment>
+        <App />
+      </ReactFragment>
     </Provider>
   );
 });
