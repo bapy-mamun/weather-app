@@ -1,6 +1,6 @@
-@use "/src/styles/variables/font.scss" as *;
+@use '/src/styles/variables/font.scss' as *;
 
-@use "sass:map";
+@use 'sass:map';
 
 @mixin font-family() {
   font-family: $font;
@@ -14,10 +14,10 @@
 
 @mixin font-weight($weight) {
   $weight-keys: (
-    "light": 300,
-    "regular": 400,
-    "medium": 500,
-    "bold": 700,
+    'light': 300,
+    'regular': 400,
+    'medium': 500,
+    'bold': 700,
   );
 
   @if not map.has-key($weight-keys, $weight) {

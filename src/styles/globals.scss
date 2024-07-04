@@ -1,11 +1,11 @@
-@use "/src/styles/tools.scss" as *;
-@import "./reset.scss";
+@use '/src/styles/tools.scss' as *;
+@import './reset.scss';
 
 body {
   box-sizing: border-box;
-  font-feature-settings: "palt";
+  font-feature-settings: 'palt';
   @include font-family();
-  @include font-weight("regular");
+  @include font-weight('regular');
   @include font-size(16);
   color: $COLOR_TEXT_BLACK;
   background-color: $COLOR_WHITE_SMOKE;

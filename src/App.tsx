@@ -1,14 +1,14 @@
-import Header from "./components/header";
-import WeatherCard from "./components/weather-card";
-import Footer from "./components/footer";
-import ForecastCard from "./components/forecast-card";
-import { useTranslation } from "react-i18next";
+import Header from './components/header';
+import WeatherCard from './components/weather-card';
+import Footer from './components/footer';
+import ForecastCard from './components/forecast-card';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const { i18n } = useTranslation();
 
   const handleSearch = () => {
-    console.log('first')
+    // console.log('first')
   };
 
   const changeLanguage = (lng: string) => {

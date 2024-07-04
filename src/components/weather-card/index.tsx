@@ -1,5 +1,5 @@
-import "./index.scss";
-import { useTranslation } from "react-i18next";
+import './index.scss';
+import { useTranslation } from 'react-i18next';
 
 type WeatherCardProps = {
   temperature: number;
@@ -16,10 +16,16 @@ const WeatherCard = ({
 
   return (
     <div className="c-weather-card">
-      <h2>{t("title")}</h2>
-      <p>{t("temperature")}: {temperature}°C</p>
-      <p>{t("humidity")}: {humidity}%</p>
-      <p>{t("conditions")}: {description}</p>
+      <h2>{t('title')}</h2>
+      <p>
+        {t('temperature')}: {temperature}°C
+      </p>
+      <p>
+        {t('humidity')}: {humidity}%
+      </p>
+      <p>
+        {t('conditions')}: {description}
+      </p>
     </div>
   );
 };
