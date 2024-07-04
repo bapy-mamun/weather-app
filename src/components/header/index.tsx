@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({
         <span className={`bar ${menuOpen ? 'bar3' : ''}`}></span>
       </div>
       <div className={`c-header__controls ${menuOpen ? 'open' : ''}`}>
-        <div className="c-header__controls__search">
+        <div className="c-header__controls-search">
           <input
             type="text"
             value={city}

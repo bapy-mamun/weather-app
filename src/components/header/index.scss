@@ -45,9 +45,16 @@
     }
   }
 
+  &__controls-search {
+    margin-right: 24px;
+
+    @include sp(&) {
+      margin-right: 0;
+    }
+  }
+
   &__input {
     padding: 4px 10px;
-    margin-right: 10px;
     border: 1px solid $COLOR_GREY;
     border-radius: 4px;
     color: $COLOR_BLUE_SECONDARY;
@@ -111,7 +118,7 @@
       width: 100%;
 
       #{$root}__button {
-        width: calc(50% - 10px);
+        width: calc(50% - 8px);
       }
     }
   }
