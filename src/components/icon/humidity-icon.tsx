@@ -1,7 +1,9 @@
 import React from 'react';
+import './index.scss';
 
 const HumidityIcon: React.FC = () => (
   <svg
+    className="c-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     width="24"

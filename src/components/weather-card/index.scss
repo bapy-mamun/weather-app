@@ -10,5 +10,13 @@
 
   &__title {
     text-transform: capitalize;
+    margin-bottom: 8px;
+    color: $COLOR_BLUE_SECONDARY;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Header from './components/header';
 import WeatherCard from './components/weather-card';
 import Footer from './components/footer';
@@ -10,12 +10,16 @@ const App: React.FC = () => {
   const [city, setCity] = useState('Tokyo');
   const { i18n } = useTranslation();
 
-  const onChangeCity = (city: string) => {
+  const onChangeCity = useCallback((city: string) => {
     setCity(city);
-  };
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-  };
+  }, []);
+
+  const changeLanguage = useCallback(
+    (lng: string) => {
+      i18n.changeLanguage(lng);
+    },
+    [i18n]
+  );
 
   return (
     <>

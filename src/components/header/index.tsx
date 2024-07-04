@@ -50,7 +50,10 @@ const Header: React.FC<HeaderProps> = ({
             className="c-header__input"
           />
           <button
-            onClick={() => setSearchBtnClicked((prev) => !prev)}
+            onClick={() => {
+              setSearchBtnClicked((prev) => !prev);
+              setMenuOpen(false);
+            }}
             className="c-header__button"
           >
             {t('search')}

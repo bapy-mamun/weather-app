@@ -1,0 +1,6 @@
+@use '/src/styles/tools.scss' as *;
+
+.c-icon {
+  color: $COLOR_BLUE_SECONDARY;
+  flex-shrink: 0;
+}

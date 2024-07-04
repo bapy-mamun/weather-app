@@ -4,6 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { useGetWeatherQuery } from '../../store/weatherApi';
 import { ErrorType } from '../../types/storeTypes';
 import { WeatherCardProps } from '../../types/weatherTypes';
+import DateIcon from '../icon/date-icon';
+import HumidityIcon from '../icon/humidity-icon';
+import ConditionIcon from '../icon/condition-icon';
 
 const WeatherCard: React.FC<WeatherCardProps> = ({
   searchBtnClicked,
@@ -27,14 +30,14 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
         <div className="c-weather-card">
           <h2 data-testid="weather-card-title">{t('title')}</h2>
           <h3 className="c-weather-card__title">{city}</h3>
-          <p>
-            {t('temperature')}: {(weatherData?.main.temp - 273.15).toFixed(2)}°C
+          <p className="c-weather-card__item">
+            <DateIcon /> {(weatherData?.main.temp - 273.15).toFixed(2)}°C
           </p>
-          <p>
-            {t('humidity')}: {weatherData?.main.humidity}%
+          <p className="c-weather-card__item">
+            <HumidityIcon /> {weatherData?.main.humidity}%
           </p>
-          <p>
-            {t('conditions')}: {weatherData?.weather[0].description}
+          <p className="c-weather-card__item">
+            <ConditionIcon /> {weatherData?.weather[0].description}
           </p>
         </div>
       )}
