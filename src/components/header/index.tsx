@@ -1,15 +1,15 @@
-import React from "react";
-import "./index.scss";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import './index.scss';
+import { useTranslation } from 'react-i18next';
 
 type HeaderProps = {
   onSearch: (city: string) => void;
   onChangeLanguage: (lng: string) => void;
-}
+};
 
 const Header: React.FC<HeaderProps> = ({ onSearch, onChangeLanguage }) => {
   const { t } = useTranslation();
-  const [city, setCity] = React.useState("");
+  const [city, setCity] = React.useState('');
 
   const handleSearch = () => {
     onSearch(city);
@@ -30,13 +30,13 @@ const Header: React.FC<HeaderProps> = ({ onSearch, onChangeLanguage }) => {
           {t('search')}
         </button>
         <button
-          onClick={() => onChangeLanguage("en")}
+          onClick={() => onChangeLanguage('en')}
           className="c-header__button"
         >
           EN
         </button>
         <button
-          onClick={() => onChangeLanguage("es")}
+          onClick={() => onChangeLanguage('es')}
           className="c-header__button"
         >
           ES
