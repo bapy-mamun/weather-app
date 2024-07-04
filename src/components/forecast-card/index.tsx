@@ -32,7 +32,7 @@ const ForecastCard: React.FC<ForecastCardProps> = ({
                 {t('date')}: {new Date(day.dt_txt).toLocaleDateString()}
               </p>
               <p>
-                {t('temperature')}: {day.main.temp}°C
+                {t('temperature')}: {(day.main.temp - 273.15).toFixed(2)}°C
               </p>
               <p>
                 {t('humidity')}: {day.main.humidity}%
