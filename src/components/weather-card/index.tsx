@@ -2,12 +2,8 @@ import React from 'react';
 import './index.scss';
 import { useTranslation } from 'react-i18next';
 import { useGetWeatherQuery } from '../../store/weatherApi';
-import { ErrorType } from '../../store/weatherApi';
-
-type WeatherCardProps = {
-  searchBtnClicked: boolean;
-  city: string;
-};
+import { ErrorType } from '../../types/storeTypes';
+import { WeatherCardProps } from '../../types/weatherTypes';
 
 const WeatherCard: React.FC<WeatherCardProps> = ({
   searchBtnClicked,

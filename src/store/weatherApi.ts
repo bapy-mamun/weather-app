@@ -1,22 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { WeatherResponse, ForecastResponse } from '@/types/weatherTypes';
-//import type { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
+import { FetchBaseQueryError, ErrorType } from '@/types/storeTypes';
 
-type FetchBaseQueryError = {
-  status: number;
-  data: {
-    message: string;
-  };
-};
-
-export type ErrorType = {
-  status: number;
-  data: {
-    message: string;
-  };
-};
-
-const WEATHER_APP__API_KEY = '7f600e164311cccca44198772374fe30';
+const WEATHER_APP__API_KEY = import.meta.env.VITE_WEATHER_APP__API_KEY;
 
 // Define a service using a base URL and expected endpoints
 export const weatherApi = createApi({
@@ -41,7 +27,6 @@ export const weatherApi = createApi({
     }),
     getForecast: builder.query<ForecastResponse, string>({
       query: (city) => `forecast?q=${city}&appid=${WEATHER_APP__API_KEY}`,
-
       transformResponse: (response: ForecastResponse) => {
         return {
           list: response.list,

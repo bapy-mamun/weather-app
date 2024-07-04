@@ -1,13 +1,7 @@
 import React from 'react';
 import './index.scss';
 import { useTranslation } from 'react-i18next';
-
-type HeaderProps = {
-  onChangeCity: (city: string) => void;
-  onChangeLanguage: (lng: string) => void;
-  setSearchBtnClicked: React.Dispatch<React.SetStateAction<boolean>>;
-  city: string;
-};
+import { HeaderProps } from '../../types/weatherTypes';
 
 const Header: React.FC<HeaderProps> = ({
   onChangeCity,

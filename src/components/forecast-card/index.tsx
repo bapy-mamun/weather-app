@@ -2,11 +2,7 @@ import React from 'react';
 import './index.scss';
 import { useTranslation } from 'react-i18next';
 import { useGetForecastQuery } from '../../store/weatherApi';
-
-type ForecastCardProps = {
-  searchBtnClicked: boolean;
-  city: string;
-};
+import { ForecastCardProps } from '../../types/weatherTypes';
 
 const ForecastCard: React.FC<ForecastCardProps> = ({
   searchBtnClicked,
