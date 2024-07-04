@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 import { useTranslation } from 'react-i18next';
 import { HeaderProps } from '../../types/weatherTypes';
@@ -15,6 +15,19 @@ const Header: React.FC<HeaderProps> = ({
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleResize = () => {
+    if (window.innerWidth > 768) {
+      setMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <header className="c-header">
