@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useGetWeatherQuery } from '../../store/weatherApi';
 import { ErrorType } from '../../types/storeTypes';
 import { WeatherCardProps } from '../../types/weatherTypes';
-import DateIcon from '../icon/date-icon';
 import HumidityIcon from '../icon/humidity-icon';
 import ConditionIcon from '../icon/condition-icon';
 import LoadingSkeleton from '../loading-skeleton';
+import TemperatureIcon from '../icon/temperature-icon';
 
 const WeatherCard: React.FC<WeatherCardProps> = ({
   searchBtnClicked,
@@ -36,7 +36,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
           <h2 data-testid="weather-card-title">{t('title')}</h2>
           <h3 className="c-weather-card__title">{city}</h3>
           <p className="c-weather-card__item">
-            <DateIcon /> {(weatherData?.main.temp - 273.15).toFixed(2)}°C
+            <TemperatureIcon /> {(weatherData?.main.temp - 273.15).toFixed(2)}°C
           </p>
           <p className="c-weather-card__item">
             <HumidityIcon /> {weatherData?.main.humidity}%
